@@ -1,0 +1,21 @@
+<div class="navbar">
+  <%= render "navbar", cocktail: @cocktail  %>
+</div>
+
+<div class="banner" <%= render "banner", cocktail: @cocktail%>>
+</div>
+
+
+
+<div>
+  <ul>
+    <p> <% @cocktails.each do |cocktail| %></p>
+    <h3> <%= cocktail.name %></h3>
+    <%= link_to "Ingredients", cocktail_path(cocktail)  %>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <%= link_to "New", new_cocktail_path  %>
+</div>

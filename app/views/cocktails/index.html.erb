@@ -1,20 +1,14 @@
-<div class="navbar">
-  <%= render "navbar", cocktail: @cocktail  %>
-</div>
-
-<div class="banner" <%= render "banner", cocktail: @cocktail%>>
-</div>
-
-
-<div>
-  <ul>
-    <p> <% @cocktails.each do |cocktail| %></p>
-    <h3> <%= cocktail.name %></h3>
-    <%= link_to "Ingredients", cocktail_path(cocktail)  %>
+<%= render "navbar" %>
+<%= render "banner" %>
+<div class="container">
+  <h2>List of cocktails</h2>
+  <div class="card-wrapper">
+    <% @cocktails.each do |cocktail| %>
+      <div class="cocktail-card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url(<%=image_path('drink1.jpg')%>); background-size: cover">
+        <%= cocktail.name %>
+        <%= link_to "Ingredients", cocktail_path(cocktail)  %>
+      </div>
     <% end %>
-  </ul>
-</div>
-
-<div>
-  <%= link_to "New", new_cocktail_path  %>
+  </div>
+<%= link_to "New", new_cocktail_path  %>
 </div>
